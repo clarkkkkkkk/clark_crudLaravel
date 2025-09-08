@@ -5,8 +5,8 @@ import { Head, Link } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Products',
-        href: '/products',
+        title: 'Create a new Product',
+        href: '/products/create',
     },
 ];
 
@@ -16,9 +16,6 @@ export default function Index() {
             <Head title="Products" />
 
             <div className='m-4'>
-                <Link href="/products/create"> {/* I hard coded this one, the route() function isn't working */}
-                    <Button>Create a Product</Button>
-                </Link>
             </div>
         </AppLayout>
     );
