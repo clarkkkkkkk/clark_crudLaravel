@@ -3,6 +3,9 @@
 This is a simple **Laravel CRUD (Create, Read, Update, Delete)** application.  
 I created and shared this repository for those who follow me want to learn or guide(reference) hands-on basics of Laravel.
 
+Visit and Follow me on TikTok for my journey & resources in the description: [@clarkkkkkkk](https://www.tiktok.com/@clarkkkkkkk)
+
+
 ---
 
 ## ⚙️ Installation
