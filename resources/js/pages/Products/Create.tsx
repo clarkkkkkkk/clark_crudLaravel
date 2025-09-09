@@ -7,6 +7,8 @@ import { Head, Link } from '@inertiajs/react';
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from '@inertiajs/react'
 import React from 'react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { CircleAlert } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -25,13 +27,25 @@ export default function Index() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        post('/products.store');
+        post('/products');
     }
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create a New Product" />
             <div className='w-8/12 p-4'>
+                {/* Display Error */}
+
+                {Object.keys(errors).length > 0 && (
+                    <Alert>
+                        <CircleAlert />
+                        <AlertTitle>Alert, alert!</AlertTitle>
+                        <AlertDescription>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis animi quis earum deleniti placeat at tempore quae distinctio itaque.
+                        </AlertDescription>
+                    </Alert>
+                )}
+
                 <form onSubmit={handleSubmit} className='space-y-4'>
                     <div className='gap-1.5'>
                         <Label htmlFor='product name'>Name</Label>
