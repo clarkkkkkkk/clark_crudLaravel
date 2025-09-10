@@ -41,7 +41,11 @@ export default function Index() {
                         <CircleAlert />
                         <AlertTitle>Alert, alert!</AlertTitle>
                         <AlertDescription>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis animi quis earum deleniti placeat at tempore quae distinctio itaque.
+                            <ul>
+                                {Object.entries(errors).map(([key, message]) => (
+                                    <li key={key}>{message as string}</li>
+                                ))}
+                            </ul>
                         </AlertDescription>
                     </Alert>
                 )}
