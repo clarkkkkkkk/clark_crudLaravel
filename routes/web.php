@@ -17,7 +17,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-    Route::get('/products/create', [ProductController::class, "create"])->name('products.create');
+    Route::get('/products/create', action: [ProductController::class, "create"])->name('products.create');
+
+    Route::delete('/products/{product}', action: [ProductController::class, "destroy"])->name('products.destroy');
 });
 
 require __DIR__.'/settings.php';

@@ -29,4 +29,9 @@ class ProductController extends Controller
         Product::create($request->all());
         return redirect()->route('products.index')->with('message', 'Product created succesfully');
     }
+
+    public function destroy(Product $product){
+        $product->delete();
+        return redirect()->route('products.index')->with('message', 'Product deleted successesfully');
+    }
 }

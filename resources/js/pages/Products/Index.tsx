@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Megaphone, Terminal } from 'lucide-react';
 
@@ -39,6 +39,13 @@ interface Pageprops {
 export default function Index() {
 
     const { products, flash } = usePage().props as Pageprops;
+    const { processing, delete: destroy } = useForm();
+
+    const handleDelete = (id: number, name: string) => {
+        if (confirm(`Do you want to delete product - ${id}. ${name}?`)) {
+            destroy(`/products/${id}`);
+        }
+    }
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -84,14 +91,13 @@ export default function Index() {
                                     <TableCell>{product.price}</TableCell>
                                     <TableCell>{product.description}</TableCell>
                                     <TableCell className="text-center">
-                                        {/* Actions Delete */}
+                                        <Button disabled={processing} onClick={() => handleDelete(product.id, product.name)} className='bg-red-500 hover:bg-red-700'>Delete</Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </div>
-
             )}
         </AppLayout>
     );
