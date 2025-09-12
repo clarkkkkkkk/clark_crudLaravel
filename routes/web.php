@@ -20,6 +20,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/products/create', action: [ProductController::class, "create"])->name('products.create');
 
     Route::delete('/products/{product}', action: [ProductController::class, "destroy"])->name('products.destroy');
+    
+    Route::get('/products/{product}/edit', action: [ProductController::class, "edit"])->name('products.edit');
+
+    Route::put('/products/{product}', action: [ProductController::class, "update"])->name('products.update');
 });
 
 require __DIR__.'/settings.php';

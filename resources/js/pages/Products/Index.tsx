@@ -92,6 +92,10 @@ export default function Index() {
                                     <TableCell>{product.description}</TableCell>
                                     <TableCell className="text-center">
                                         <Button disabled={processing} onClick={() => handleDelete(product.id, product.name)} className='bg-red-500 hover:bg-red-700'>Delete</Button>
+
+                                        <Link href={`/products/${product.id}/edit`}>
+                                            <Button className="bg-green-500 hover:bg-green-700">Update</Button>
+                                        </Link>
                                     </TableCell>
                                 </TableRow>
                             ))}
